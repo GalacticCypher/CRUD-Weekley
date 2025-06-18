@@ -4,7 +4,8 @@ async function createBook() {
         title: document.getElementById("title").value,
         author: document.getElementById("author").value,
         genre: document.getElementById("genre").value,
-        price: document.getElementById("price").value
+        price: document.getElementById("price").value,
+        quantity: document.getElementById("quantity").value,
     };
 try {
     const response = await fetch("http://localhost:5000/books", {
@@ -20,7 +21,8 @@ try {
         document.getElementById("title").value = "";
         document.getElementById("author").value = "";
         document.getElementById("genre").value = "";
-        document.getElementById("price").value = ""
+        document.getElementById("price").value = "";
+        document.getElementById("quantity").value = "";
 
     getBooks();
   }
@@ -38,7 +40,7 @@ async function getBooks() {
     list.innerHTML = "";
     books.forEach(book => {
         const item = document.createElement("li");
-        item.textContent = `${book.title} by ${book.author} - ${book.genre} ($${book.price})`;
+        item.textContent = `${book.title} by ${book.author} - ${book.genre} ($${book.price}) quantity : ${book.quantity} `;
         list.appendChild(item);
     });
 }
@@ -73,7 +75,8 @@ async function updateBook() {
         newtitle: document.getElementById("newtitle").value,
         newauthor: document.getElementById("newauthor").value,
         newgenre: document.getElementById("newgenre").value,
-        newprice: document.getElementById("newprice").value
+        newprice: document.getElementById("newprice").value,
+        newquantity: document.getElementById("newquantity").value
     };
 
     try{
@@ -92,6 +95,7 @@ async function updateBook() {
         document.getElementById("newauthor").value = "";
         document.getElementById("newgenre").value = "";
         document.getElementById("newprice").value = "";
+        document.getElementById("newquantity").value = "";
 
   
     getBooks();
@@ -146,6 +150,10 @@ async function registerUser() {
   } else {
     alert(data.error || 'Registration failed');
   }
+}
+
+function visitorUser() {
+ window.location.href = "user.html";
 }
 
   

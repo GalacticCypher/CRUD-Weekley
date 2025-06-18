@@ -15,10 +15,10 @@ app.get('/books', async (req, res) => {
 
 app.post('/books', async (req, res) => {
   try{
-  const { title, author, genre, price } = req.body;
+  const { title, author, genre, price, quantity } = req.body;
   const result = await pool.query(
-    'INSERT INTO books (title, author, genre, price) VALUES ($1, $2, $3, $4) RETURNING *',
-    [title, author, genre, price]
+    'INSERT INTO books (title, author, genre, price, quantity) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+    [title, author, genre, price, quantity]
   );
 
   if(result.rows.length === 0){
@@ -53,10 +53,10 @@ app.delete('/books', async (req, res) => {
 
 app.patch('/books', async (req, res) => {
   try{
-  const { oldtitle, newtitle, newauthor, newgenre, newprice } = req.body;
+  const { oldtitle, newtitle, newauthor, newgenre, newprice, newquantity} = req.body;
   const result = await pool.query(
-    'UPDATE books SET title = $2, author = $3, genre = $4, price = $5 WHERE title = $1 RETURNING *;',
-    [oldtitle, newtitle, newauthor, newgenre, newprice]
+    'UPDATE books SET title = $2, author = $3, genre = $4, price = $5, quantity = $6 WHERE title = $1 RETURNING *;',
+    [oldtitle, newtitle, newauthor, newgenre, newprice, newquantity]
   );
 
   if(result.rows.length === 0) {
