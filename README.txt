@@ -53,10 +53,10 @@ SETUP INSTRUCTIONS
 1. Install Docker and Docker Compose
 
 2. Clone the repo:
-   git clone
+   git clone https://github.com/GalacticCypher/CRUD-Weekley.git
 
 3. Navigate to the project folder:
-   cd 
+   cd CRUD-Weekley
 
 4. Build and run the containers:
    docker-compose up --build
