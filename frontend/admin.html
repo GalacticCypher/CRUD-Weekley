@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const role = sessionStorage.getItem("userRole");
+    if (role !== "admin") {
+      alert("Access denied: Admins only.");
+      window.location.href = "user.html";
+    }
+  });
+</script>
+</head>
+<body>
+
+<div class="split left">
+  <div class="centered">
+    <!-- Add Book Form -->
+    <h2>Add a New Book</h2>
+    <input type="text" id="title" placeholder="Title">
+    <input type="text" id="author" placeholder="Author">
+    <input type="text" id="genre" placeholder="Genre">
+    <input id="price" placeholder="Price">
+    <button id="btnleft" onclick="createBook()">Add Book</button>
+    <!--Remove Book-->
+    <h2>Remove a Book</h2>
+    <input type="'text" id="remove" placeholder="Book Title to Remove">
+    <button id="btnleft" onclick="removeBook()">Remove Book</button>
+    <!-- Update Book Form -->
+    <h2>Update a Book</h2>
+    <input type="text" id="oldtitle" placeholder="Old Title">
+    <input type="text" id="newtitle" placeholder="Updated Title">
+    <input type="text" id="newauthor" placeholder="Updated Author">
+    <input type="text" id="newgenre" placeholder="Updated Genre">
+    <input id="newprice" placeholder="Updated Price">
+    <button id="btnleft" style="margin-bottom: 25px;"  onclick="updateBook()">Update Book</button>
+
+
+  </div>
+</div>
+<div class="split right">
+  <div class="centered">
+    <!-- Book List -->
+    <h2>Books</h2>
+    <button id="btnright" onclick="getBooks()">Load Books</button>
+    <ul id="bookList"></ul>
+  </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

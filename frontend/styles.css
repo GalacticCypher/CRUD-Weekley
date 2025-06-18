@@ -1,0 +1,75 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+input {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    
+}
+
+button {
+    padding: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#btnleft {
+    background: rgb(8, 145, 90);
+}
+
+
+#btnright {
+    background: rgb(31, 95, 215);
+}
+
+
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+
+.left {
+  left: 0;
+  background-color: #82c491;
+}
+
+
+.right {
+  right: 0;
+  background-color: rgb(108, 181, 229);
+}
+
+
+#bookList {
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#bookList li {
+    background-color: #b5ddfd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, .5);
+    width: 250px;
+    text-align: center;
+}
